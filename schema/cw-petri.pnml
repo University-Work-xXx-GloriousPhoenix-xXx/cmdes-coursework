@@ -124,6 +124,28 @@
           <position x="-766" y="-177"/>
         </graphics>
       </place>
+      <place id="p-p1-228a838c">
+        <name>
+          <text>Main free</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="-290" y="-281"/>
+        </graphics>
+      </place>
+      <place id="p-p2-ca318f6e">
+        <name>
+          <text>Extra free</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="-448" y="316"/>
+        </graphics>
+      </place>
       <transition id="t-t1-972cee87">
         <name>
           <text>Receive</text>
@@ -238,7 +260,7 @@
           <priority>1</priority>
         </toolspecific>
         <graphics>
-          <position x="-438" y="-44"/>
+          <position x="-437" y="-44"/>
         </graphics>
       </transition>
       <arc id="arc-cd2f45ef" source="p-p1-f508d6a8" target="t-t1-972cee87">
@@ -330,6 +352,16 @@
           <text>1</text>
         </inscription>
       </arc>
+      <arc id="arc-b2ce7022" source="p-p2-ca318f6e" target="t-t2-e18e4d80">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-5b33f157" source="p-p1-228a838c" target="t-t1-9fa6eee8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
       <arc id="arc-523e2d3c" source="t-t1-972cee87" target="p-p1-f508d6a8">
         <inscription>
           <text>1</text>
@@ -396,6 +428,16 @@
         </inscription>
       </arc>
       <arc id="arc-f46604fe" source="t-t3-c6e51b95" target="p-p11-fc0677d8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-58d4f2ab" source="t-t2-e18e4d80" target="p-p2-ca318f6e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-5849053e" source="t-t1-9fa6eee8" target="p-p1-228a838c">
         <inscription>
           <text>1</text>
         </inscription>
