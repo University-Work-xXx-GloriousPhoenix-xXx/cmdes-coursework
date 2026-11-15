@@ -65,7 +65,7 @@
         <text>Main channel</text>
       </name>
       <toolspecific tool="PetriObjModel" version="2.8.1">
-        <petriObject contentVisible="true" height="323" index="1" modelId="o_12ce2513a4a3436991857ca1b93d9278" name="Main channel" priority="0" width="554" x="-568" y="-371"/>
+        <petriObject contentVisible="true" height="414" index="1" modelId="o_12ce2513a4a3436991857ca1b93d9278" name="Main channel" priority="0" width="554" x="-568" y="-462"/>
       </toolspecific>
       <place id="p-processed-main-8d313bfa">
         <name>
@@ -117,6 +117,17 @@
           <position x="-190" y="-134"/>
         </graphics>
       </referencePlace>
+      <place id="p-p1-3d91ed6e">
+        <name>
+          <text>Main free</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="-190" y="-352"/>
+        </graphics>
+      </place>
       <transition id="t-to-processed-8cb1bac0">
         <name>
           <text>To processed</text>
@@ -178,6 +189,11 @@
           <text>1</text>
         </inscription>
       </arc>
+      <arc id="arc-34de8350" source="p-p1-3d91ed6e" target="t-process-main-1593c1df">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
       <arc id="arc-833e29cf" source="t-to-processed-8cb1bac0" target="p-processed-main-8d313bfa">
         <inscription>
           <text>1</text>
@@ -193,13 +209,18 @@
           <text>1</text>
         </inscription>
       </arc>
+      <arc id="arc-79679574" source="t-process-main-1593c1df" target="p-p1-3d91ed6e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
     </page>
     <page id="object2">
       <name>
         <text>Extra channel</text>
       </name>
       <toolspecific tool="PetriObjModel" version="2.8.1">
-        <petriObject contentVisible="true" height="279" index="2" modelId="o_d4d4ffebdce941159788f19a0f2f9b00" name="Extra channel" priority="0" width="380" x="-489" y="186"/>
+        <petriObject contentVisible="true" height="291" index="2" modelId="o_d4d4ffebdce941159788f19a0f2f9b00" name="Extra channel" priority="0" width="380" x="-489" y="174"/>
       </toolspecific>
       <place id="p-processed-extra-cbf4af9e">
         <name>
@@ -231,6 +252,17 @@
           <position x="-395" y="273"/>
         </graphics>
       </referencePlace>
+      <place id="p-p1-e079d22c">
+        <name>
+          <text>Extra free</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="-289" y="267"/>
+        </graphics>
+      </place>
       <transition id="t-process-extra-56667ff9">
         <name>
           <text>Process extra</text>
@@ -258,7 +290,17 @@
           <text>1</text>
         </inscription>
       </arc>
+      <arc id="arc-b6c8b470" source="p-p1-e079d22c" target="t-process-extra-56667ff9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
       <arc id="arc-36384553" source="t-process-extra-56667ff9" target="p-processed-extra-cbf4af9e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-245cebd7" source="t-process-extra-56667ff9" target="p-p1-e079d22c">
         <inscription>
           <text>1</text>
         </inscription>
