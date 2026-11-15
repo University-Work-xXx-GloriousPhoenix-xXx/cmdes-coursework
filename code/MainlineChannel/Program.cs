@@ -1,7 +1,6 @@
-﻿using System.Globalization;
+using System.Globalization;
 using MainlineChannel;
 
-// Використання: dotnet run -- [--time 100000] [--warmup 0] [--k 0] [--seed 1] [--trace]
 CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 

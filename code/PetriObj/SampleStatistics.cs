@@ -1,6 +1,5 @@
 namespace PetriObj;
 
-/// <summary>Статистика вибірки (алгоритм Велфорда): кількість, середнє, СКВ, мінімум, максимум.</summary>
 public sealed class SampleStatistics
 {
     private double _m2;

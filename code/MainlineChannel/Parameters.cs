@@ -1,6 +1,5 @@
 namespace MainlineChannel;
 
-/// <summary>Вхідні змінні моделі (часи — у секундах, прибуток — у грошових одиницях).</summary>
 public sealed record Parameters
 {
     public double ArrivalMean { get; init; } = 9;
@@ -15,9 +14,7 @@ public sealed record Parameters
 
     public double ProfitMain { get; init; } = 50;
     public double ProfitBackup { get; init; } = 25;
-    /// <summary>Зменшення прибутку з повідомлення на кожну секунду приросту напрацювання на відмову.</summary>
     public double PenaltyPerSecond { get; init; } = 0.03;
 
-    /// <summary>Приріст середнього часу напрацювання на відмову, с.</summary>
     public double K { get; init; }
 }

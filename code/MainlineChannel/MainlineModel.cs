@@ -2,11 +2,6 @@ using PetriObj;
 
 namespace MainlineChannel;
 
-/// <summary>
-/// Петрі-об'єктна модель магістрального каналу передачі даних (завдання B10).
-/// Об'єкти: Generator, Main channel, Extra channel, Breaks&amp;Repair.
-/// Спільні позиції (ототожнення): Storage, Main active, Transfer active, Extra active.
-/// </summary>
 public sealed class MainlineModel
 {
     private readonly Parameters _p;
@@ -15,11 +10,9 @@ public sealed class MainlineModel
     private readonly Place _mainActive;
     private readonly Transition _processMain, _toProcessed, _toStorage, _processExtra;
 
-    // Моменти надходження повідомлень, що чекають у накопичувачі (порядок FIFO).
     private readonly LinkedList<double> _queue = new();
     private double _mainMessage, _mainOutput, _extraMessage;
 
-    /// <summary>Час перебування повідомлення в системі: від надходження до завершення передачі.</summary>
     public SampleStatistics TransferTime { get; } = new();
 
     public MainlineModel(Parameters p, int seed)
@@ -44,11 +37,10 @@ public sealed class MainlineModel
         _toStorage = main["To storage"];
         _processExtra = extra["Process extra"];
 
-        // Відстеження окремих повідомлень для статистики часу передачі.
         generator["Receive"].OnExit += t => _queue.AddLast(t);
         _processMain.OnEnter += _ => _mainMessage = Dequeue();
-        _processMain.OnExit += _ => _mainOutput = _mainMessage; // канал вже вільний, повідомлення — у Main output
-        _toStorage.OnExit += _ => _queue.AddFirst(_mainOutput); // повторна передача з початку
+        _processMain.OnExit += _ => _mainOutput = _mainMessage;
+        _toStorage.OnExit += _ => _queue.AddFirst(_mainOutput);
         _toProcessed.OnExit += t => TransferTime.Add(t - _mainOutput);
         _processExtra.OnEnter += _ => _extraMessage = Dequeue();
         _processExtra.OnExit += t => TransferTime.Add(t - _extraMessage);
@@ -92,8 +84,6 @@ public sealed class MainlineModel
         return t;
     }
 
-    // ---- Петрі-об'єкти ----
-
     private PetriObject Generator(Random random, Place storage)
     {
         var o = new PetriObject("Generator");
@@ -103,7 +93,6 @@ public sealed class MainlineModel
         return o;
     }
 
-    /// <param name="interrupt">Позиція-ознака збою; null — канал без переривання передачі.</param>
     private PetriObject Channel(string name, string label, Random random,
         Place storage, Place active, Place? interrupt)
     {

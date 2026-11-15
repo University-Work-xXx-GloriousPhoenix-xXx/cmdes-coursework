@@ -1,6 +1,5 @@
 namespace PetriObj;
 
-/// <summary>Петрі-об'єкт: іменований фрагмент стохастичної мережі Петрі.</summary>
 public sealed class PetriObject(string name)
 {
     private readonly List<Transition> _transitions = [];
@@ -17,10 +16,8 @@ public sealed class PetriObject(string name)
         return transition;
     }
 
-    /// <summary>Найближчий момент виходу маркерів з переходів об'єкта.</summary>
     public double NextTime => _transitions.Count == 0 ? double.PositiveInfinity : _transitions.Min(t => t.NextTime);
 
-    /// <summary>Вихід маркерів з усіх переходів, для яких настав момент виходу.</summary>
     internal void Output(double time)
     {
         foreach (var t in _transitions)
@@ -28,11 +25,6 @@ public sealed class PetriObject(string name)
                 t.Exit(time);
     }
 
-    /// <summary>
-    /// Вхід маркерів у переходи, доки є переходи з виконаною умовою запуску.
-    /// Конфлікт вирішується за пріоритетом, при рівних пріоритетах — рівноймовірно.
-    /// </summary>
-    /// <returns>true, якщо був хоча б один вхід.</returns>
     internal bool Input(double time, Random random)
     {
         var fired = false;

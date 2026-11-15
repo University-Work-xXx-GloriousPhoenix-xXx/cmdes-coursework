@@ -1,9 +1,5 @@
 namespace PetriObj;
 
-/// <summary>
-/// Петрі-об'єктна модель та алгоритм її імітації (алгоритм 3.4 навчального посібника):
-/// просування часу до найближчої події → вихід маркерів → вхід маркерів до стабілізації.
-/// </summary>
 public sealed class Model
 {
     private readonly IReadOnlyList<PetriObject> _objects;
@@ -22,14 +18,10 @@ public sealed class Model
     public double Time { get; private set; }
     public IReadOnlyList<PetriObject> Objects => _objects;
 
-    /// <summary>Протокол подій (null — без протоколу).</summary>
     public TextWriter? Trace { get; set; }
 
-    /// <summary>Подія скидання статистики після перехідного періоду.</summary>
     public event Action? StatisticsReset;
 
-    /// <param name="endTime">Час моделювання.</param>
-    /// <param name="warmup">Тривалість перехідного періоду, статистика якого відкидається.</param>
     public void Run(double endTime, double warmup = 0)
     {
         Time = 0;
@@ -96,8 +88,6 @@ public sealed class Model
         foreach (var t in _transitions) t.ResetStatistics();
         StatisticsReset?.Invoke();
     }
-
-    // ---- протокол подій ----
 
     private readonly List<Action> _detach = [];
 
