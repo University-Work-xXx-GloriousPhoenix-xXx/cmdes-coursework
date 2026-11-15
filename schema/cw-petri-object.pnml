@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="cw-petri-object" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text>cw-petri-object</text>
+    </name>
+    <page id="object0">
+      <name>
+        <text>Generator</text>
+      </name>
+      <toolspecific tool="PetriObjModel" version="2.8.1">
+        <petriObject contentVisible="true" height="200" index="0" modelId="o_ac64330d939f4be19d994a4380572cf0" name="Generator" priority="0" width="284" x="-610" y="-35"/>
+      </toolspecific>
+      <place id="p-ready-3e26c1f9">
+        <name>
+          <text>Ready</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="-562" y="75"/>
+        </graphics>
+      </place>
+      <place id="p-storage-be9cd794">
+        <name>
+          <text>Storage</text>
+        </name>
+        <graphics>
+          <position x="-394" y="73"/>
+        </graphics>
+      </place>
+      <transition id="t-receive-3e57d457">
+        <name>
+          <text>Receive</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>9.0</timeDelay>
+          <delayMeanValue>9.0</delayMeanValue>
+          <standardDeviation>5.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-478" y="74"/>
+        </graphics>
+      </transition>
+      <arc id="arc-388201f8" source="p-ready-3e26c1f9" target="t-receive-3e57d457">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-cc46083a" source="t-receive-3e57d457" target="p-ready-3e26c1f9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-1f644b0b" source="t-receive-3e57d457" target="p-storage-be9cd794">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+    </page>
+    <page id="object1">
+      <name>
+        <text>Main channel</text>
+      </name>
+      <toolspecific tool="PetriObjModel" version="2.8.1">
+        <petriObject contentVisible="true" height="323" index="1" modelId="o_12ce2513a4a3436991857ca1b93d9278" name="Main channel" priority="0" width="554" x="-568" y="-371"/>
+      </toolspecific>
+      <place id="p-processed-main-8d313bfa">
+        <name>
+          <text>Processed main</text>
+        </name>
+        <graphics>
+          <position x="-478" y="-249"/>
+        </graphics>
+      </place>
+      <place id="p-main-output-39285c2c">
+        <name>
+          <text>Main output</text>
+        </name>
+        <graphics>
+          <position x="-294" y="-249"/>
+        </graphics>
+      </place>
+      <referencePlace id="p-main-active-c6e57e59" ref="p-main-active-4de26d97">
+        <name>
+          <text>Main active</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <referenceRole>fusion</referenceRole>
+          <fusedInitialMarking>1</fusedInitialMarking>
+        </toolspecific>
+        <graphics>
+          <position x="-84" y="-249"/>
+        </graphics>
+      </referencePlace>
+      <referencePlace id="p-p1-32df809a" ref="p-storage-be9cd794">
+        <name>
+          <text>Storage</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <referenceRole>fusion</referenceRole>
+        </toolspecific>
+        <graphics>
+          <position x="-392" y="-133"/>
+        </graphics>
+      </referencePlace>
+      <referencePlace id="p-p2-19cb1712" ref="p-transfer-active-e1a15ce9">
+        <name>
+          <text>Transfer active</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <referenceRole>fusion</referenceRole>
+        </toolspecific>
+        <graphics>
+          <position x="-190" y="-134"/>
+        </graphics>
+      </referencePlace>
+      <transition id="t-to-processed-8cb1bac0">
+        <name>
+          <text>To processed</text>
+        </name>
+        <graphics>
+          <position x="-391" y="-249"/>
+        </graphics>
+      </transition>
+      <transition id="t-process-main-1593c1df">
+        <name>
+          <text>Process main</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>7.0</timeDelay>
+          <delayMeanValue>7.0</delayMeanValue>
+          <standardDeviation>3.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-191" y="-249"/>
+        </graphics>
+      </transition>
+      <transition id="t-t1-64a81a57">
+        <name>
+          <text>To storage</text>
+        </name>
+        <graphics>
+          <position x="-295" y="-134"/>
+        </graphics>
+      </transition>
+      <arc id="arc-bce9a8c7" source="p-main-output-39285c2c" target="t-to-processed-8cb1bac0">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-0cdc84e6" source="p-main-active-c6e57e59" target="t-process-main-1593c1df">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <informational>true</informational>
+        </toolspecific>
+      </arc>
+      <arc id="arc-355e8cbf" source="p-p2-19cb1712" target="t-t1-64a81a57">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <informational>true</informational>
+        </toolspecific>
+      </arc>
+      <arc id="arc-2cb21acb" source="p-main-output-39285c2c" target="t-t1-64a81a57">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-28265f5c" source="p-p1-32df809a" target="t-process-main-1593c1df">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-833e29cf" source="t-to-processed-8cb1bac0" target="p-processed-main-8d313bfa">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-9e02da02" source="t-process-main-1593c1df" target="p-main-output-39285c2c">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-f130f7fa" source="t-t1-64a81a57" target="p-p1-32df809a">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+    </page>
+    <page id="object2">
+      <name>
+        <text>Extra channel</text>
+      </name>
+      <toolspecific tool="PetriObjModel" version="2.8.1">
+        <petriObject contentVisible="true" height="279" index="2" modelId="o_d4d4ffebdce941159788f19a0f2f9b00" name="Extra channel" priority="0" width="380" x="-489" y="186"/>
+      </toolspecific>
+      <place id="p-processed-extra-cbf4af9e">
+        <name>
+          <text>Processed extra</text>
+        </name>
+        <graphics>
+          <position x="-395" y="386"/>
+        </graphics>
+      </place>
+      <referencePlace id="p-extra-active-2e05eeef" ref="p-extra-active-8573b8f7">
+        <name>
+          <text>Extra active</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <referenceRole>fusion</referenceRole>
+        </toolspecific>
+        <graphics>
+          <position x="-177" y="387"/>
+        </graphics>
+      </referencePlace>
+      <referencePlace id="p-p1-0e7fb95e" ref="p-storage-be9cd794">
+        <name>
+          <text>Storage</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <referenceRole>fusion</referenceRole>
+        </toolspecific>
+        <graphics>
+          <position x="-395" y="273"/>
+        </graphics>
+      </referencePlace>
+      <transition id="t-process-extra-56667ff9">
+        <name>
+          <text>Process extra</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>7.0</timeDelay>
+          <delayMeanValue>7.0</delayMeanValue>
+          <standardDeviation>3.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-288" y="386"/>
+        </graphics>
+      </transition>
+      <arc id="arc-1ea66992" source="p-extra-active-2e05eeef" target="t-process-extra-56667ff9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <informational>true</informational>
+        </toolspecific>
+      </arc>
+      <arc id="arc-e89a6f31" source="p-p1-0e7fb95e" target="t-process-extra-56667ff9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-36384553" source="t-process-extra-56667ff9" target="p-processed-extra-cbf4af9e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+    </page>
+    <page id="object3">
+      <name>
+        <text>Breaks&amp;Repair</text>
+      </name>
+      <toolspecific tool="PetriObjModel" version="2.8.1">
+        <petriObject contentVisible="true" height="544" index="3" modelId="o_3d8aa3592b154a2480ce40fab6ae1851" name="Breaks&amp;Repair" priority="0" width="765" x="34" y="-341"/>
+      </toolspecific>
+      <place id="p-to-deactivate-1ef9c012">
+        <name>
+          <text>To deactivate</text>
+        </name>
+        <graphics>
+          <position x="605" y="10"/>
+        </graphics>
+      </place>
+      <place id="p-to-activate-058720ea">
+        <name>
+          <text>To activate</text>
+        </name>
+        <graphics>
+          <position x="731" y="121"/>
+        </graphics>
+      </place>
+      <place id="p-to-reactivate-0b1c29d6">
+        <name>
+          <text>To reactivate</text>
+        </name>
+        <graphics>
+          <position x="329" y="-117"/>
+        </graphics>
+      </place>
+      <place id="p-transfer-active-e1a15ce9">
+        <name>
+          <text>Transfer active</text>
+        </name>
+        <graphics>
+          <position x="102" y="10"/>
+        </graphics>
+      </place>
+      <place id="p-broken-396dd92b">
+        <name>
+          <text>Broken</text>
+        </name>
+        <graphics>
+          <position x="408" y="-90"/>
+        </graphics>
+      </place>
+      <place id="p-extra-active-8573b8f7">
+        <name>
+          <text>Extra active</text>
+        </name>
+        <graphics>
+          <position x="327" y="121"/>
+        </graphics>
+      </place>
+      <place id="p-repaired-c9fb5dbd">
+        <name>
+          <text>Repaired</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="540" y="-89"/>
+        </graphics>
+      </place>
+      <place id="p-main-active-4de26d97">
+        <name>
+          <text>Main active</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="333" y="-251"/>
+        </graphics>
+      </place>
+      <transition id="t-activate-extra-4003160d">
+        <name>
+          <text>Activate extra</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>2.0</timeDelay>
+          <delayMeanValue>2.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="475" y="121"/>
+        </graphics>
+      </transition>
+      <transition id="t-deactivate-main-11396cbc">
+        <name>
+          <text>Deactivate main</text>
+        </name>
+        <graphics>
+          <position x="729" y="-248"/>
+        </graphics>
+      </transition>
+      <transition id="t-break-timeout-2558a379">
+        <name>
+          <text>Break timeout</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>200.0</timeDelay>
+          <delayMeanValue>200.0</delayMeanValue>
+          <standardDeviation>35.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="474" y="10"/>
+        </graphics>
+      </transition>
+      <transition id="t-repair-timeout-15dac35d">
+        <name>
+          <text>Repair timeout</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>70.0</timeDelay>
+          <delayMeanValue>70.0</delayMeanValue>
+          <standardDeviation>7.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="473" y="-195"/>
+        </graphics>
+      </transition>
+      <transition id="t-reactivate-main-8168a600">
+        <name>
+          <text>Reactivate main</text>
+        </name>
+        <graphics>
+          <position x="184" y="-117"/>
+        </graphics>
+      </transition>
+      <arc id="arc-22d49641" source="p-to-activate-058720ea" target="t-activate-extra-4003160d">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-5f5a9b35" source="p-to-deactivate-1ef9c012" target="t-deactivate-main-11396cbc">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-a2ced0c1" source="p-main-active-4de26d97" target="t-deactivate-main-11396cbc">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-84de6428" source="p-repaired-c9fb5dbd" target="t-break-timeout-2558a379">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-ed8f907d" source="p-broken-396dd92b" target="t-repair-timeout-15dac35d">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-41a0f6a6" source="p-extra-active-8573b8f7" target="t-reactivate-main-8168a600">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-fa54c9c9" source="p-to-reactivate-0b1c29d6" target="t-reactivate-main-8168a600">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-a2cb4a51" source="p-transfer-active-e1a15ce9" target="t-reactivate-main-8168a600">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-e8ee46fd" source="t-activate-extra-4003160d" target="p-extra-active-8573b8f7">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-a26d13c9" source="t-deactivate-main-11396cbc" target="p-to-activate-058720ea">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-6ac0935c" source="t-break-timeout-2558a379" target="p-to-deactivate-1ef9c012">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-9e4179fc" source="t-break-timeout-2558a379" target="p-broken-396dd92b">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-3c048a39" source="t-break-timeout-2558a379" target="p-transfer-active-e1a15ce9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-0f5e8d95" source="t-repair-timeout-15dac35d" target="p-repaired-c9fb5dbd">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-6c727444" source="t-repair-timeout-15dac35d" target="p-to-reactivate-0b1c29d6">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-d709047e" source="t-reactivate-main-8168a600" target="p-main-active-4de26d97">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+    </page>
+    <toolspecific tool="PetriObjModel" version="2.8.1">
+      <petriObjectLinks>
+        <link sourceElement="2" sourceElementId="p-main-active-c6e57e59" sourceObject="1" targetElement="7" targetElementId="p-main-active-4de26d97" targetObject="3" type="placeFusion"/>
+        <link sourceElement="3" sourceElementId="p-p1-32df809a" sourceObject="1" targetElement="1" targetElementId="p-storage-be9cd794" targetObject="0" type="placeFusion"/>
+        <link sourceElement="4" sourceElementId="p-p2-19cb1712" sourceObject="1" targetElement="3" targetElementId="p-transfer-active-e1a15ce9" targetObject="3" type="placeFusion"/>
+        <link sourceElement="1" sourceElementId="p-extra-active-2e05eeef" sourceObject="2" targetElement="5" targetElementId="p-extra-active-8573b8f7" targetObject="3" type="placeFusion"/>
+        <link sourceElement="2" sourceElementId="p-p1-0e7fb95e" sourceObject="2" targetElement="1" targetElementId="p-storage-be9cd794" targetObject="0" type="placeFusion"/>
+      </petriObjectLinks>
+    </toolspecific>
+  </net>
+</pnml>
