@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="petri" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="cw-petri" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
-      <text>petri</text>
+      <text>cw-petri</text>
     </name>
     <page id="object0">
       <name>
@@ -238,7 +238,7 @@
           <priority>1</priority>
         </toolspecific>
         <graphics>
-          <position x="-442" y="-44"/>
+          <position x="-438" y="-44"/>
         </graphics>
       </transition>
       <arc id="arc-cd2f45ef" source="p-p1-f508d6a8" target="t-t1-972cee87">
@@ -251,17 +251,7 @@
           <text>1</text>
         </inscription>
       </arc>
-      <arc id="arc-2e7f12b2" source="p-p4-95ac7214" target="t-t1-6e3e5a88">
-        <inscription>
-          <text>1</text>
-        </inscription>
-      </arc>
-      <arc id="arc-f9de08ac" source="p-p6-10bf0fec" target="t-t1-a7ec6f08">
-        <inscription>
-          <text>1</text>
-        </inscription>
-      </arc>
-      <arc id="arc-56dc9170" source="p-p5-6dd3287b" target="t-t2-a4c0ab5a">
+      <arc id="arc-3ad3de1e" source="p-p2-99fc5b8d" target="t-t1-9fa6eee8">
         <inscription>
           <text>1</text>
         </inscription>
@@ -271,17 +261,25 @@
           <text>1</text>
         </inscription>
       </arc>
-      <arc id="arc-e63cdf74" source="p-p7-ddcdaaaf" target="t-t3-1efc9fcc">
+      <arc id="arc-2e7f12b2" source="p-p4-95ac7214" target="t-t1-6e3e5a88">
         <inscription>
           <text>1</text>
         </inscription>
       </arc>
-      <arc id="arc-ecb9ac36" source="p-p8-441f04d6" target="t-t1-a7ec6f08">
+      <arc id="arc-56dc9170" source="p-p5-6dd3287b" target="t-t2-a4c0ab5a">
         <inscription>
           <text>1</text>
         </inscription>
       </arc>
-      <arc id="arc-1098142d" source="p-p9-382d4390" target="t-t4-8adf96b7">
+      <arc id="arc-8b2e5367" source="p-p5-6dd3287b" target="t-t1-9fa6eee8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <informational>true</informational>
+        </toolspecific>
+      </arc>
+      <arc id="arc-f9de08ac" source="p-p6-10bf0fec" target="t-t1-a7ec6f08">
         <inscription>
           <text>1</text>
         </inscription>
@@ -294,15 +292,17 @@
           <informational>true</informational>
         </toolspecific>
       </arc>
-      <arc id="arc-8b2e5367" source="p-p5-6dd3287b" target="t-t1-9fa6eee8">
+      <arc id="arc-e63cdf74" source="p-p7-ddcdaaaf" target="t-t3-1efc9fcc">
         <inscription>
           <text>1</text>
         </inscription>
-        <toolspecific tool="PetriObjModel" version="2.8.1">
-          <informational>true</informational>
-        </toolspecific>
       </arc>
-      <arc id="arc-3ad3de1e" source="p-p2-99fc5b8d" target="t-t1-9fa6eee8">
+      <arc id="arc-ecb9ac36" source="p-p8-441f04d6" target="t-t1-a7ec6f08">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-1098142d" source="p-p9-382d4390" target="t-t4-8adf96b7">
         <inscription>
           <text>1</text>
         </inscription>
@@ -340,12 +340,27 @@
           <text>1</text>
         </inscription>
       </arc>
+      <arc id="arc-367dd788" source="t-t5-385ba62e" target="p-p2-99fc5b8d">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
       <arc id="arc-926bf4c1" source="t-t1-6e3e5a88" target="p-p1-308f4a75">
         <inscription>
           <text>1</text>
         </inscription>
       </arc>
+      <arc id="arc-044d991e" source="t-t3-1efc9fcc" target="p-p4-95ac7214">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
       <arc id="arc-3a6ba60b" source="t-t1-a7ec6f08" target="p-p5-6dd3287b">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-a1de8cd7" source="t-t4-8adf96b7" target="p-p6-10bf0fec">
         <inscription>
           <text>1</text>
         </inscription>
@@ -360,11 +375,6 @@
           <text>1</text>
         </inscription>
       </arc>
-      <arc id="arc-044d991e" source="t-t3-1efc9fcc" target="p-p4-95ac7214">
-        <inscription>
-          <text>1</text>
-        </inscription>
-      </arc>
       <arc id="arc-b05479b6" source="t-t3-1efc9fcc" target="p-p8-441f04d6">
         <inscription>
           <text>1</text>
@@ -375,22 +385,12 @@
           <text>1</text>
         </inscription>
       </arc>
-      <arc id="arc-a1de8cd7" source="t-t4-8adf96b7" target="p-p6-10bf0fec">
-        <inscription>
-          <text>1</text>
-        </inscription>
-      </arc>
       <arc id="arc-62407b55" source="t-t1-9fa6eee8" target="p-p10-b63841b0">
         <inscription>
           <text>1</text>
         </inscription>
       </arc>
       <arc id="arc-212c2e39" source="t-t1-6e3e5a88" target="p-p3-f7301024">
-        <inscription>
-          <text>1</text>
-        </inscription>
-      </arc>
-      <arc id="arc-367dd788" source="t-t5-385ba62e" target="p-p2-99fc5b8d">
         <inscription>
           <text>1</text>
         </inscription>
