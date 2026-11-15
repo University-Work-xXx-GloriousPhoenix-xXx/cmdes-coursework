@@ -1,0 +1,42 @@
+digraph G {
+  graph [rankdir=TB, fontname="Times New Roman", fontsize=14, nodesep=0.35, ranksep=0.45, newrank=true];
+  node  [fontname="Times New Roman", fontsize=13, shape=box, style="rounded", width=1.3];
+  edge  [fontname="Times New Roman", fontsize=12, arrowsize=0.7];
+
+  subgraph cluster_msg {
+    label="Обробка повідомлень"; labeljust=l; style=solid;
+    start [shape=circle, label="", width=0.3];
+    arrive [label="Надходження\nповідомлення\n(9 ± 5 с)"];
+    queue  [label="Очікування\nв накопичувачі"];
+    which  [shape=diamond, label="Який канал\nактивний?", width=1.6, style=""];
+    tmain  [label="Передача\nосновним каналом\n(7 ± 3 с)"];
+    fail   [shape=diamond, label="Збій під час\nпередачі?", width=1.5, style=""];
+    okm    [label="Передано\nосновним (+50)"];
+    intr   [label="Переривання,\nповернення\nв накопичувач"];
+    tbak   [label="Передача\nрезервним каналом\n(7 ± 3 с)"];
+    okb    [label="Передано\nрезервним (+25)"];
+    end1 [shape=doublecircle, label="", width=0.2];
+    end2 [shape=doublecircle, label="", width=0.2];
+    start -> arrive -> queue -> which;
+    which -> tmain [label="основний"];
+    which -> tbak  [label="резервний"];
+    tmain -> fail;
+    fail -> okm [label="ні"];
+    fail -> intr [label="так"];
+    intr -> queue [constraint=false];
+    okm -> end1; tbak -> okb -> end2;
+  }
+
+  subgraph cluster_rel {
+    label="Збої та відновлення основного каналу"; labeljust=l; style=solid;
+    work  [label="Робота\nосновного каналу\n(200 + k ± 35 с)"];
+    brk   [label="Збій: основний\nканал вимкнено"];
+    boot  [label="Запуск\nрезервного каналу\n(2 с)"];
+    rep   [label="Відновлення\nосновного каналу\n(70 ± 7 с)"];
+    sw    [label="Основний увімкнено,\nрезервний вимкнено"];
+    work -> brk -> boot; brk -> rep; rep -> sw; sw -> work [constraint=false];
+  }
+  brk -> fail [style=dashed, arrowhead=open, label="сигнал збою"];
+  sw -> which [style=dashed, arrowhead=open];
+  boot -> which [style=dashed, arrowhead=open];
+}
