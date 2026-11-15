@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MainlineChannel/MainlineChannel.csproj" />
+  <Project Path="PetriObj/PetriObj.csproj" />
+</Solution>
