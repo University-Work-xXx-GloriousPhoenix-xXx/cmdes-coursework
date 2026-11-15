@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="petri" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text>petri</text>
+    </name>
+    <page id="object0">
+      <name>
+        <text>Free elements</text>
+      </name>
+      <toolspecific tool="PetriObjModel" version="2.8.1">
+        <petriObject contentVisible="true" index="0" modelId="free" name="Free elements" priority="0" x="0" y="0"/>
+      </toolspecific>
+      <place id="p-p1-f508d6a8">
+        <name>
+          <text>Ready</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="-763" y="-40"/>
+        </graphics>
+      </place>
+      <place id="p-p2-99fc5b8d">
+        <name>
+          <text>Storage</text>
+        </name>
+        <graphics>
+          <position x="-595" y="-42"/>
+        </graphics>
+      </place>
+      <place id="p-p1-308f4a75">
+        <name>
+          <text>To deactivate</text>
+        </name>
+        <graphics>
+          <position x="130" y="82"/>
+        </graphics>
+      </place>
+      <place id="p-p4-95ac7214">
+        <name>
+          <text>Repaired</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="65" y="-17"/>
+        </graphics>
+      </place>
+      <place id="p-p5-6dd3287b">
+        <name>
+          <text>Main active</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="-142" y="-179"/>
+        </graphics>
+      </place>
+      <place id="p-p6-10bf0fec">
+        <name>
+          <text>Extra active</text>
+        </name>
+        <graphics>
+          <position x="-148" y="193"/>
+        </graphics>
+      </place>
+      <place id="p-p2-d62f973c">
+        <name>
+          <text>Processed extra</text>
+        </name>
+        <graphics>
+          <position x="-597" y="192"/>
+        </graphics>
+      </place>
+      <place id="p-p7-ddcdaaaf">
+        <name>
+          <text>Broken</text>
+        </name>
+        <graphics>
+          <position x="-67" y="-18"/>
+        </graphics>
+      </place>
+      <place id="p-p8-441f04d6">
+        <name>
+          <text>To reactivate</text>
+        </name>
+        <graphics>
+          <position x="-146" y="-45"/>
+        </graphics>
+      </place>
+      <place id="p-p9-382d4390">
+        <name>
+          <text>To activate</text>
+        </name>
+        <graphics>
+          <position x="256" y="193"/>
+        </graphics>
+      </place>
+      <place id="p-p10-b63841b0">
+        <name>
+          <text>Main output</text>
+        </name>
+        <graphics>
+          <position x="-440" y="-177"/>
+        </graphics>
+      </place>
+      <place id="p-p3-f7301024">
+        <name>
+          <text>Transfer active</text>
+        </name>
+        <graphics>
+          <position x="-373" y="82"/>
+        </graphics>
+      </place>
+      <place id="p-p11-fc0677d8">
+        <name>
+          <text>Processed main</text>
+        </name>
+        <graphics>
+          <position x="-766" y="-177"/>
+        </graphics>
+      </place>
+      <transition id="t-t1-972cee87">
+        <name>
+          <text>Receive</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>9.0</timeDelay>
+          <delayMeanValue>9.0</delayMeanValue>
+          <standardDeviation>5.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-679" y="-41"/>
+        </graphics>
+      </transition>
+      <transition id="t-t2-e18e4d80">
+        <name>
+          <text>Process extra</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>7.0</timeDelay>
+          <delayMeanValue>7.0</delayMeanValue>
+          <standardDeviation>3.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-447" y="193"/>
+        </graphics>
+      </transition>
+      <transition id="t-t1-6e3e5a88">
+        <name>
+          <text>Break timeout</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>200.0</timeDelay>
+          <delayMeanValue>200.0</delayMeanValue>
+          <standardDeviation>35.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-1" y="82"/>
+        </graphics>
+      </transition>
+      <transition id="t-t1-a7ec6f08">
+        <name>
+          <text>Reactivate main</text>
+        </name>
+        <graphics>
+          <position x="-291" y="-45"/>
+        </graphics>
+      </transition>
+      <transition id="t-t2-a4c0ab5a">
+        <name>
+          <text>Deactivate main</text>
+        </name>
+        <graphics>
+          <position x="254" y="-176"/>
+        </graphics>
+      </transition>
+      <transition id="t-t3-1efc9fcc">
+        <name>
+          <text>Repair timeout</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>70.0</timeDelay>
+          <delayMeanValue>70.0</delayMeanValue>
+          <standardDeviation>7.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-2" y="-123"/>
+        </graphics>
+      </transition>
+      <transition id="t-t4-8adf96b7">
+        <name>
+          <text>Activate extra</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>2.0</timeDelay>
+          <delayMeanValue>2.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="0" y="193"/>
+        </graphics>
+      </transition>
+      <transition id="t-t1-9fa6eee8">
+        <name>
+          <text>Process main</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <timeDelay>7.0</timeDelay>
+          <delayMeanValue>7.0</delayMeanValue>
+          <standardDeviation>3.0</standardDeviation>
+          <distribution>unif</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="-291" y="-178"/>
+        </graphics>
+      </transition>
+      <transition id="t-t3-c6e51b95">
+        <name>
+          <text>To processed</text>
+        </name>
+        <graphics>
+          <position x="-679" y="-177"/>
+        </graphics>
+      </transition>
+      <transition id="t-t5-385ba62e">
+        <name>
+          <text>To storage</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <priority>1</priority>
+        </toolspecific>
+        <graphics>
+          <position x="-442" y="-44"/>
+        </graphics>
+      </transition>
+      <arc id="arc-cd2f45ef" source="p-p1-f508d6a8" target="t-t1-972cee87">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-955d1b45" source="p-p2-99fc5b8d" target="t-t2-e18e4d80">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-2e7f12b2" source="p-p4-95ac7214" target="t-t1-6e3e5a88">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-f9de08ac" source="p-p6-10bf0fec" target="t-t1-a7ec6f08">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-56dc9170" source="p-p5-6dd3287b" target="t-t2-a4c0ab5a">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-48a0bcca" source="p-p1-308f4a75" target="t-t2-a4c0ab5a">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-e63cdf74" source="p-p7-ddcdaaaf" target="t-t3-1efc9fcc">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-ecb9ac36" source="p-p8-441f04d6" target="t-t1-a7ec6f08">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-1098142d" source="p-p9-382d4390" target="t-t4-8adf96b7">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-4ae1ebcf" source="p-p6-10bf0fec" target="t-t2-e18e4d80">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <informational>true</informational>
+        </toolspecific>
+      </arc>
+      <arc id="arc-8b2e5367" source="p-p5-6dd3287b" target="t-t1-9fa6eee8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <informational>true</informational>
+        </toolspecific>
+      </arc>
+      <arc id="arc-3ad3de1e" source="p-p2-99fc5b8d" target="t-t1-9fa6eee8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-6e52861e" source="p-p10-b63841b0" target="t-t5-385ba62e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-61f974d5" source="p-p10-b63841b0" target="t-t3-c6e51b95">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-b691e548" source="p-p3-f7301024" target="t-t5-385ba62e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <toolspecific tool="PetriObjModel" version="2.8.1">
+          <informational>true</informational>
+        </toolspecific>
+      </arc>
+      <arc id="arc-3379f10f" source="p-p3-f7301024" target="t-t1-a7ec6f08">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-523e2d3c" source="t-t1-972cee87" target="p-p1-f508d6a8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-97c4068c" source="t-t1-972cee87" target="p-p2-99fc5b8d">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-926bf4c1" source="t-t1-6e3e5a88" target="p-p1-308f4a75">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-3a6ba60b" source="t-t1-a7ec6f08" target="p-p5-6dd3287b">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-0a77b63c" source="t-t2-e18e4d80" target="p-p2-d62f973c">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-3813f4d6" source="t-t1-6e3e5a88" target="p-p7-ddcdaaaf">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-044d991e" source="t-t3-1efc9fcc" target="p-p4-95ac7214">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-b05479b6" source="t-t3-1efc9fcc" target="p-p8-441f04d6">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-ddcd751d" source="t-t2-a4c0ab5a" target="p-p9-382d4390">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-a1de8cd7" source="t-t4-8adf96b7" target="p-p6-10bf0fec">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-62407b55" source="t-t1-9fa6eee8" target="p-p10-b63841b0">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-212c2e39" source="t-t1-6e3e5a88" target="p-p3-f7301024">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-367dd788" source="t-t5-385ba62e" target="p-p2-99fc5b8d">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-f46604fe" source="t-t3-c6e51b95" target="p-p11-fc0677d8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+    </page>
+    <toolspecific tool="PetriObjModel" version="2.8.1">
+      <petriObjectLinks/>
+    </toolspecific>
+  </net>
+</pnml>
